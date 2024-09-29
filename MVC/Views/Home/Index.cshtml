@@ -1,0 +1,138 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model HomeVM
+
+
+<!-- About Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            @{
+                foreach (var about in Model.Abouts)
+                {
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="about-img position-relative overflow-hidden p-5 pe-0">
+                            <img class="img-fluid w-100" src="~/img/product-1.jpg">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                        <h1 class="display-5 mb-4">@about.AboutTitle</h1>
+                        <p class="mb-4">@about.AboutDescription</p>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+<!-- About End -->
+<!-- Feature Start -->
+<div class="container-fluid bg-light bg-icon my-5 py-6">
+    <div class="container">
+        <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+            <h1 class="display-5 mb-3">Our Features</h1>
+            <p>We offer 100% organic fruits and vegetables sourced directly from sustainable farms, ensuring the freshest and healthiest produce for our customers. With a focus on seasonal offerings and farm-to-table delivery, we prioritize both environmental responsibility and the well-being of our community. Our commitment is to provide nutrient-rich, natural products that support a healthy lifestyle.</p>
+        </div>
+        <div class="row g-4">
+            @{
+                foreach(var feature in Model.Features)
+                {
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="bg-white text-center h-100 p-4 p-xl-5">
+                            <img class="img-fluid mb-4" src="~/img/product-1.jpg" alt="">
+                            <h4 class="mb-3">@feature.FeatureTitle</h4>
+                            <p class="mb-4">@feature.FeatureDescription</p>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+<!-- Feature End -->
+<!-- Product Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-0 gx-5 align-items-end">
+            <div class="col-lg-6">
+                <div class="section-header text-start mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                    <h1 class="display-5 mb-3">Our Products</h1>
+                    <p>We provide fresh, 100% organic fruits and vegetables, grown sustainably without harmful chemicals. Our handpicked produce delivers peak freshness, exceptional taste, and high nutritional value.</p>
+                </div>
+            </div>
+            <div class="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
+                <ul class="nav nav-pills d-inline-flex justify-content-end mb-5">
+                    @{
+                        foreach(var category in Model.Categories)
+                        {
+                            <li class="nav-item me-2">
+                                <a class="btn btn-outline-primary border-2" href="@Url.Action("Index", "Home", new { categoryId = category.Id })">
+                                    @category.CategoryName
+                                </a>
+                            </li>
+                        }
+                        
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="tab-content">
+            <div id="tab-1" class="tab-pane fade show p-0 active">
+                <div class="row g-4">
+                    @{
+                        foreach(var product in Model.Products)
+                        {
+                            <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="product-item">
+                                    <div class="position-relative bg-light overflow-hidden">
+                                        <img class="img-fluid w-100" src="~/img/product-1.jpg" alt="">
+                                        <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
+                                    </div>
+                                    <div class="text-center p-4">
+                                        <a class="d-block h5 mb-2" href="">@product.ProductName</a>
+                                        @if(product.IsDiscount)
+                                        {
+                                            <span class="text-primary me-1">$@product.ProductPrice - (@product.ProductPrice * @product.DiscountRate/100)</span>
+                                            <span class="text-body text-decoration-line-through">$@product.ProductPrice</span>
+                                        }
+                                        else
+                                        {
+                                        <span class="text-primary me-1">$@product.ProductPrice</span>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Product End -->
+<!-- Blog Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+            <h1 class="display-5 mb-3">Latest Blog</h1>
+            <p>Discover tips on organic farming, healthy recipes, and the benefits of fresh produce. Stay updated on sustainable practices and seasonal offerings to enhance your well-being with our organic fruits and vegetables.</p>
+        </div>
+        <div class="row g-4">
+            @{
+                foreach(var blog in Model.Blogs)
+                {
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <img class="img-fluid" src="~/img/product-1.jpg" alt="">
+                        <div class="bg-light p-4">
+                            <a class="d-block h5 lh-base mb-4" href="">@blog.BlogTitle</a>
+                            <div class="text-muted border-top pt-4">
+                                <small class="me-3"><i class="fa fa-calendar text-primary me-2"></i>@blog.BlogDate</small>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+<!-- Blog End -->
