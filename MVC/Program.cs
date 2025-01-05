@@ -69,7 +69,7 @@ namespace MVC
             app.UseRouting();
 
             // Enable Authentication & Authorization
-            //app.UseAuthentication(); // JWT Authentication middleware
+            app.UseAuthentication(); // JWT Authentication middleware
             app.UseAuthorization();
 
             // Optional CORS usage
@@ -78,10 +78,10 @@ namespace MVC
             app.UseStatusCodePagesWithReExecute("/Error/{0}");
 
             // Area routing
-            //app.MapControllerRoute(
-            //    name: "areas",
-            //    pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}"
-            //);
+            app.MapControllerRoute(
+                name: "areas",
+                pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}"
+            );
 
             // Default routing
             app.MapControllerRoute(

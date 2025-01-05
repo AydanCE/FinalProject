@@ -1,0 +1,33 @@
+﻿<h2>Create Feature</h2>
+<h4>Feature Details</h4>
+<div class="container">
+    <div class="row">
+        <div class="col-8 m-auto">
+            <form asp-action="Add" method="post">
+                <div class="card mt-5">
+                    <div class="card-header">
+                        Feature Create
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <!-- Feature Title -->
+                            <label for="Title">Feature Title</label>
+                            <input class="form-control" type="text" name="Title" id="Title" required />
+
+                            <!-- Feature Description -->
+                            <label for="Description" class="mt-3">Description</label>
+                            <textarea class="form-control" name="Description" id="Description" required></textarea>
+
+                            <!-- Is Featured -->
+                            <label for="IsFeatured" class="mt-3">Is Featured?</label>
+                            <input class="form-control" type="checkbox" name="IsFeatured" id="IsFeatured" />
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <input type="submit" class="btn btn-primary" value="Submit" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

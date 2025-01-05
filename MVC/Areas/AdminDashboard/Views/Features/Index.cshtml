@@ -1,24 +1,19 @@
-﻿@using UI.ViewModels
-@model ErrorVM
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h1>Feature page!</h1>
 
-<div class="error-container">
-    <div class="text-center">
-        <h1>Sehife Tapilmadi</h1>
-        <h2>Status code @Model.StatusCode</h2>
-        <h3>url: @Model.Path</h3>
-    </div>
-</div>
-
-<!-- Add this CSS -->
 <style>
-    .error-container {
+    .feature-container {
         display: flex;
         justify-content: center;
         align-items: center;
         min-height: 100vh; /* Make the container take the full height of the screen */
         margin-top: -50px; /* Adjust this value to avoid overlapping with the header */
     }
-    .text-center {
+    .h1 {
         text-align: center;
         padding: 20px;
     }

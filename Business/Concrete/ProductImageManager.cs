@@ -40,6 +40,16 @@ namespace Business.Concrete
             return new ErrorDataResult<List<ProductImageToProductDTO>>(images);
         }
 
+        public IDataResult<List<ProductImageToProductDTO>> GetAllFeaturedProductsByCategoryId(int categoryId)
+        {
+            var result = _productImageDal.GetAllFeaturedProductsByCategoryId(categoryId);
+            if (result.Count != 0)
+            {
+                return new SuccessDataResult<List<ProductImageToProductDTO>>(result);
+            }
+            return new ErrorDataResult<List<ProductImageToProductDTO>>(result);
+        }
+
         public IDataResult<List<ProductImageToProductDTO>> GetAllProducts()
         {
             var images = _productImageDal.GetAllProducts();

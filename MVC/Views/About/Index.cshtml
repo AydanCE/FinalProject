@@ -1,0 +1,68 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "About Page";
+}
+@model AboutVM
+
+<!-- Page Header Start -->
+<div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <h1 class="display-3 mb-3 animated slideInDown">About Us</h1>
+        <nav aria-label="breadcrumb animated slideInDown">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a class="text-body" href="Home">Home</a></li>
+                <li class="breadcrumb-item"><a class="text-body" href="#">Pages</a></li>
+                <li class="breadcrumb-item text-dark active" aria-current="page">About Us</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!-- Page Header End -->
+<!-- About Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            @{
+                foreach (var about in Model.Abouts)
+                {
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="about-img position-relative overflow-hidden p-5 pe-0">
+                            <img class="img-fluid w-100" src="@about.ImageUrl">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                        <h1 class="display-5 mb-4">@about.AboutTitle</h1>
+                        <p class="mb-4">@about.AboutDescription</p>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+<!-- About End -->
+<!-- Feature Start -->
+<div class="container-fluid bg-light bg-icon my-5 py-6">
+    <div class="container">
+        <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+            <h1 class="display-5 mb-3">Our Features</h1>
+            <p>We offer 100% organic fruits and vegetables sourced directly from sustainable farms, ensuring the freshest and healthiest produce for our customers. With a focus on seasonal offerings and farm-to-table delivery, we prioritize both environmental responsibility and the well-being of our community. Our commitment is to provide nutrient-rich, natural products that support a healthy lifestyle.</p>
+        </div>
+        <div class="row g-4">
+            @{
+                foreach (var feature in Model.Features)
+                {
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="bg-white text-center h-100 p-4 p-xl-5">
+                            <img class="img-fluid mb-4" src="@feature.ImageUrl" alt="">
+                            <h4 class="mb-3">@feature.FeatureTitle</h4>
+                            <p class="mb-4">@feature.FeatureDescription</p>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+<!-- Feature End -->

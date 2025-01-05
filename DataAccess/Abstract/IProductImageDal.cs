@@ -14,5 +14,6 @@ namespace DataAccess.Abstract
         List<ProductImageToProductDTO> GetAllProducts();
         List<ProductImageToProductDTO> GetAllProductsByFeatured();
         List<ProductImageToProductDTO> GetAllProductsByCategoryId(int categoryId);
+        List<ProductImageToProductDTO> GetAllFeaturedProductsByCategoryId(int categoryId);
     }
 }

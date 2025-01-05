@@ -18,7 +18,7 @@ namespace Business.Concrete
     {
         private readonly IProductDal _productDal = productDal;
 
-        [SecuredOperation("admin,moderator")]
+        //[SecuredOperation("admin,moderator")]
         [ValidationAspect<Product>(typeof(ProductValidator))]
         public IResult AddProduct(Product product)
         {

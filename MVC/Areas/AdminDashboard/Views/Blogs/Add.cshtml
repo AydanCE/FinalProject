@@ -1,0 +1,47 @@
+﻿<h2>Create Blog</h2>
+<h4>Blog Details</h4>
+<div class="container">
+    <div class="row">
+        <div class="col-8 m-auto">
+            <form asp-action="Add" method="post">
+                <div class="card mt-5">
+                    <div class="card-header">
+                        Blog Create
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <!-- Blog Title -->
+                            <label for="Title">Blog Title</label>
+                            <input class="form-control" type="text" name="Title" id="Title" />
+
+                            <!-- Blog Description -->
+                            <label for="Description" class="mt-3">Description</label>
+                            <textarea class="form-control" name="Description" id="Description"></textarea>
+
+                            <!-- Is Featured -->
+                            <label for="IsFeatured" class="mt-3">Is Featured?</label>
+                            <input class="form-control" type="checkbox" name="IsFeatured" id="IsFeatured" />
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <input type="submit" class="btn btn-primary" value="Submit" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .add-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; /* Make the container take the full height of the screen */
+        margin-top: -50px; /* Adjust this value to avoid overlapping with the header */
+    }
+    .text-center {
+        text-align: center;
+        padding: 20px;
+    }
+</style>

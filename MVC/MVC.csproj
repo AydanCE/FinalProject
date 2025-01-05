@@ -20,4 +20,9 @@
     <ProjectReference Include="..\Business\Business.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\AdminDashboard\Data\" />
+    <Folder Include="Areas\AdminDashboard\Models\" />
+  </ItemGroup>
+
 </Project>

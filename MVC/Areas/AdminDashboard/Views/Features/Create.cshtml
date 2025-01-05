@@ -1,0 +1,25 @@
+﻿﻿<h4>Create page</h4>
+<div class="container">
+    <div class="row">
+        <div class="col-8 m-auto">
+            <form asp-action="Create" enctype="multipart/form-data" method="post">
+                <div class="card mt-5">
+                    <div class="card-header">
+                        FeatureImage Create
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <input class="form-control" type="number" name="FeatureId" id="FeatureId" />
+
+                            <input class="form-control" accept="image/png, image/gif, image/jpeg" type="file" name="ImageUrl" id="ImageUrl" />
+                            <br />
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <input type="submit" class="btn btn-primary" value="Submit" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

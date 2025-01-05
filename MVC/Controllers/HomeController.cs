@@ -29,16 +29,15 @@ namespace MVC.Controllers
 
         public IActionResult Index(int? categoryId)
         {
-            HomeVM vm = new()
-            {
-                Products = categoryId.HasValue
-                    ? _productImageService.GetAllProductsByCategory(categoryId.Value).Data
-                    : _productImageService.GetAll().Data,
-                Abouts = _aboutImageService.GetAllAbouts().Data,
-                Features = _featureImageService.GetAll().Data,
-                Blogs = _blogImageService.GetAll().Data,
-                Categories = _categoryService.GetAllCategories().Data,
-            };
+            HomeVM vm = new();
+
+            vm.Products = categoryId.HasValue
+                ? _productImageService.GetAllFeaturedProductsByCategoryId(categoryId.Value).Data
+                : _productImageService.GetAll().Data;
+            vm.Abouts = _aboutImageService.GetAllAbouts().Data;
+            vm.Features = _featureImageService.GetAll().Data;
+            vm.Blogs = _blogImageService.GetAll().Data;
+            vm.Categories = _categoryService.GetAllCategories().Data;
             return View(vm);
         }
 

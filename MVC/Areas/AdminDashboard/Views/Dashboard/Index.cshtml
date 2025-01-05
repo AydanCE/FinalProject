@@ -1,17 +1,15 @@
-﻿@using UI.ViewModels
-@model ErrorVM
-
-<div class="error-container">
-    <div class="text-center">
-        <h1>Sehife Tapilmadi</h1>
-        <h2>Status code @Model.StatusCode</h2>
-        <h3>url: @Model.Path</h3>
-    </div>
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Admin Panel";
+}
+<div class="text-center">
+    <h1>Admin Panel Home Page</h1>
 </div>
 
-<!-- Add this CSS -->
 <style>
-    .error-container {
+    .index-container {
         display: flex;
         justify-content: center;
         align-items: center;

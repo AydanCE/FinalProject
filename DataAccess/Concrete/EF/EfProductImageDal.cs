@@ -26,6 +26,8 @@ namespace DataAccess.Concrete.EF
                              ImageUrl = i.ImageUrl,
                              ProductName = p.ProductName,
                              ProductPrice = p.Price,
+                             DiscountRate = p.DiscountRate,
+                             IsDiscount = p.IsDiscount,
                          };
             return result.ToList();
         }
@@ -44,6 +46,8 @@ namespace DataAccess.Concrete.EF
                              ImageUrl = i.ImageUrl,
                              ProductName = p.ProductName,
                              ProductPrice = p.Price,
+                             DiscountRate = p.DiscountRate,
+                             IsDiscount = p.IsDiscount,
                          };
             return result.Where(p => p.IsFeaturated == true).Take(3).ToList();
         }
@@ -61,10 +65,32 @@ namespace DataAccess.Concrete.EF
                              ProductPrice = p.Price,
                              IsFeaturated = p.IsFeatured,
                              ImageUrl = pi.ImageUrl,
-                             ProductImageId = pi.Id
+                             ProductImageId = pi.Id,
+                             DiscountRate = p.DiscountRate,
+                             IsDiscount = p.IsDiscount,
                          };
             return result.ToList();
 
+        }
+        public List<ProductImageToProductDTO> GetAllFeaturedProductsByCategoryId(int categoryId)
+        {
+            BaseProjectContext baseContext = new BaseProjectContext();
+            var result = from p in baseContext.Products
+                         where p.IsDeleted == false && p.CategoryId == categoryId
+                         join pi in baseContext.ProductImages
+                         on p.Id equals pi.ProductId
+                         select new ProductImageToProductDTO
+                         {
+                             ProductId = p.Id,
+                             ProductName = p.ProductName,
+                             ProductPrice = p.Price,
+                             IsFeaturated = p.IsFeatured,
+                             ImageUrl = pi.ImageUrl,
+                             ProductImageId = pi.Id,
+                             DiscountRate = p.DiscountRate,
+                             IsDiscount = p.IsDiscount,
+                         };
+            return result.Where(p => p.IsFeaturated == true).Take(3).ToList();
         }
     }
 }

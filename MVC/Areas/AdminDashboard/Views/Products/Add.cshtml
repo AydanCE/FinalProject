@@ -1,0 +1,55 @@
+﻿<h2>Create Product</h2>
+<h4>Product Details</h4>
+<div class="container">
+    <div class="row">
+        <div class="col-8 m-auto">
+            <form asp-action="Add" method="post">
+                <div class="card mt-5">
+                    <div class="card-header">
+                        Product Create
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="ProductName">Product Name</label>
+                            <input class="form-control" type="text" name="ProductName" id="ProductName" />
+
+                            <label for="Description" class="mt-3">Description</label>
+                            <textarea class="form-control" name="Description" id="Description"></textarea>
+
+                            <label for="Price" class="mt-3">Price</label>
+                            <input class="form-control" type="number" name="Price" id="Price" step="0.01" />
+
+                            <label for="IsDiscount" class="mt-3">Is Discounted?</label>
+                            <input class="form-control" type="checkbox" name="IsDiscount" id="IsDiscount" />
+
+                            <label for="DiscountRate" class="mt-3">Discount Rate (%)</label>
+                            <input class="form-control" type="number" name="DiscountRate" id="DiscountRate" />
+
+                            <label for="CategoryId" class="mt-3">CategoryId</label>
+                            <input class="form-control" type="number" name="CategoryId" id="Category" />
+
+                            <label for="IsFeatured" class="mt-3">Is Featured?</label>
+                            <input class="form-control" type="checkbox" name="IsFeatured" id="IsFeatured" />
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <input type="submit" class="btn btn-primary" value="Submit" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<style>
+    .add-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; /* Make the container take the full height of the screen */
+        margin-top: -50px; /* Adjust this value to avoid overlapping with the header */
+    }
+    .text-center {
+        text-align: center;
+        padding: 20px;
+    }
+</style>
